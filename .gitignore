@@ -132,3 +132,10 @@ all.config
 
 # Kdevelop4
 *.kdev4
+
+CMakeLists.txt
+builtin.txt
+cmake-build-debug
+compile_commands.json
+vmlinux-boom-bak
+vmlinux.txt

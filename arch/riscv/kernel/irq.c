@@ -15,6 +15,7 @@
 #define INTERRUPT_CAUSE_SOFTWARE    1
 #define INTERRUPT_CAUSE_TIMER       5
 #define INTERRUPT_CAUSE_EXTERNAL    9
+#define INTERRUPT_CAUSE_DEBUG		14
 
 /*
  * The high order bit of the trap cause register is always set for
@@ -45,6 +46,9 @@ asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
 	case INTERRUPT_CAUSE_EXTERNAL:
 		handle_arch_irq(regs);
 		break;
+    case INTERRUPT_CAUSE_DEBUG:
+    	pr_notice("Debug interrupt triggered\n");
+        break;
 	default:
 		panic("unexpected interrupt cause");
 	}
